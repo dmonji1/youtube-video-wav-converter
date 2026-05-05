@@ -1,0 +1,27 @@
+node_modules/
+dist/
+
+# environment
+.env
+.env.*
+
+# audio temp files
+*.wav
+
+# logs
+logs/
+*.log
+npm-debug.log*
+
+# os
+.DS_Store
+Thumbs.db
+
+# editor
+.vscode/
+.idea/
+
+# test coverage
+coverage/
+
+CLAUDE.md
