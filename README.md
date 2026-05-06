@@ -96,7 +96,7 @@ Every PR runs lint and tests via GitHub Actions. Merging to `main` triggers a fu
 - [x] Winston logger + Morgan + request ID middleware + error handler + helmet
 - [x] BullMQ queue + worker (concurrency limit + graceful shutdown)
 - [x] Input validation for `start`/`end` timestamps
-- [ ] Rate limiting on `POST /api/audio` (Redis-backed)
+- [x] Rate limiting on `POST /api/audio` (Redis-backed)
 - [ ] S3 upload + presigned URL download + health check endpoint
 - [ ] Tests (Jest + Supertest, unit + integration)
 - [ ] CI/CD (GitHub Actions — PR checks + deploy pipeline)
