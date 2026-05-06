@@ -12,7 +12,7 @@ exports.ffmpegTrim = (filepath, start, end, requestId) => {
 
         logger.info('starting ffmpeg trim', { requestId, filepath, start, end, trimmedFilepath })
 
-        const ffmpeg = spawn('ffmpeg', ['-ss', start, '-i', filepath, '-to', end, '-c', 'copy', trimmedFilepath])
+        const ffmpeg = spawn('ffmpeg', ['-ss', start, '-to', end, '-i', filepath, trimmedFilepath])
 
         ffmpeg.on('error', (err) => {
             logger.error('ffmpeg process failed to start', { requestId, error: err.message, stack: err.stack })

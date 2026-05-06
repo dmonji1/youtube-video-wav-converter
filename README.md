@@ -94,8 +94,8 @@ Every PR runs lint and tests via GitHub Actions. Merging to `main` triggers a fu
 
 - [x] Routes / controllers / services separation
 - [x] Winston logger + Morgan + request ID middleware + error handler + helmet
-- [ ] BullMQ queue + worker (concurrency limit + graceful shutdown)
-- [ ] Input validation for `start`/`end` timestamps
+- [x] BullMQ queue + worker (concurrency limit + graceful shutdown)
+- [x] Input validation for `start`/`end` timestamps
 - [ ] Rate limiting on `POST /api/audio` (Redis-backed)
 - [ ] S3 upload + presigned URL download + health check endpoint
 - [ ] Tests (Jest + Supertest, unit + integration)
