@@ -93,7 +93,7 @@ Every PR runs lint and tests via GitHub Actions. Merging to `main` triggers a fu
 ## Implementation roadmap
 
 - [x] Routes / controllers / services separation
-- [ ] Winston logger + Morgan + request ID middleware + error handler + helmet
+- [x] Winston logger + Morgan + request ID middleware + error handler + helmet
 - [ ] BullMQ queue + worker (concurrency limit + graceful shutdown)
 - [ ] Input validation for `start`/`end` timestamps
 - [ ] Rate limiting on `POST /api/audio` (Redis-backed)
