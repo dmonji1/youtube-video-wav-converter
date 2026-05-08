@@ -205,6 +205,8 @@ class GH,GA,ECR,ECSClusterDeploy cicd;
 
 GH --> GA --> ECR --> ECSClusterDeploy --> ECSCluster
 
+```
+
 ## CI/CD
 
 Every PR runs lint and tests via GitHub Actions. Merging to `main` triggers a full deploy: Docker images are built, pushed to ECR, and ECS tasks are updated with a rolling deploy.
