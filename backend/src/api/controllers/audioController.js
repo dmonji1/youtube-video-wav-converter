@@ -1,6 +1,7 @@
 const { Job } = require('bullmq')
 const { logger } = require('../../utils/logger')
 const { addJob, audioQueue } = require('../../queue')
+const { getPresignedUrl } = require('../../services/s3Service')
 
 const timeFormat = /^\d{2}:\d{2}:\d{2}$/
 
@@ -45,8 +46,9 @@ exports.getDownload = async (req, res, next) => {
         if (state !== 'completed') {
             return res.status(409).json({ error: `Job is not completed, current state: ${state}` })
         }
-        logger.info('job download requested', { jobId })
-        res.json({ filepath: job.returnvalue })
+        logger.info('job download requested', { jobId, requestId: req.requestId })
+        const url = await getPresignedUrl(job.returnvalue, req.requestId)
+        res.redirect(url)
     } catch (err) {
         next(err)
     }

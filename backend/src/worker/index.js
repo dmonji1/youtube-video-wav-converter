@@ -1,5 +1,6 @@
 const {Worker} = require('bullmq')
 const {download} = require('../services/downloadService')
+const {uploadToS3} = require('../services/s3Service')
 const {createRedisConnection} = require('../config/redis')
 const {logger} = require('../utils/logger')
 
@@ -7,7 +8,8 @@ const worker = new Worker('audio-processing', async (job) => {
     const { url, start, end, requestId } = job.data
     
     const trimmedFilepath = await download({ url, start, end, requestId })
-    return trimmedFilepath
+    const s3Key = await uploadToS3(trimmedFilepath, requestId)
+    return s3Key
 
 }, {
     connection: createRedisConnection(),

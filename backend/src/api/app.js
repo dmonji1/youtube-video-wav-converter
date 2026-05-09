@@ -12,6 +12,7 @@ app.use(requestIdMiddleware)
 app.use(morgan('combined', { stream }))
 
 app.use(express.json())
+app.get('/health', (req, res) => res.sendStatus(200))
 app.use('/api', audioRouter)
 app.use(errorHandler)
 
